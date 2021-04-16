@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="beerRecordId" type="String"/>
+    <lightning:navigation aura:id="navigateBeerOrder"/>
+	<lightning:recordForm
+        recordId="{!v.beerRecordId}"
+        objectApiName="Beer__c"
+        layoutType="Full"
+        columns="2"
+        mode="readonly" />
+    <lightning:button aura:id="beerOrderbutton" variant="brand" label="Order Now" onclick="{!c.orderBeer}"/>
+
+</aura:component>

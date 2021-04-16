@@ -1,0 +1,91 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="beerId" type="String"/>
+    
+    <aura:attribute name="orderbeerRecord" type="Object"/>
+    <aura:attribute name="orderbeerFields" type="Object"/>
+    <aura:attribute name="orderbeerError" type="String"/>
+    
+       <force:recordData aura:id="EditBeerOrderRecord"
+                      mode="EDIT"
+                      layoutType="FULL"
+                      targetFields="{!v.orderbeerFields}"
+                      targetRecord="{!v.orderbeerRecord}"
+                      targetError="{!v.orderbeerError}"
+         />
+ 
+    <aura:attribute name="beerRecord" type="Object"/>
+    <aura:attribute name="beerFields" type="Object"/>
+    <aura:attribute name="beerError" type="String"/>
+    <force:recordData aura:id="viewBeerRecord"
+                      layoutType="FULL"
+                      mode="VIEW"
+                      recordId="{!v.beerId}"
+                      targetFields="{!v.beerFields}"
+                      targetRecord="{!v.beerRecord}"
+                      targetError="{!v.beerError}"
+      />
+    <div class="slds-grid slds-wrap slds-p-around_xx-small ">
+      <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+       <lightning:input name="quantityToOrder" aura:id="testvalid" type="Integer" label="Quantity To Order" value="{!v.orderbeerFields.Ordered_Quantity__c}"/>   
+      </div>
+        <div class="slds-col slds-size_1-of-2">
+       <lightning:input name="beerName" aura:id="testvalid" readonly="true" label="Beer To Order" value="{!v.beerFields.Name}"/>   
+      </div>
+    </div>
+    
+    <div class="slds-grid slds-wrap slds-p-around_xx-small ">
+      <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+       <lightning:inputAddress
+            aura:id="testvalid"
+            addressLabel="Shipping Address"
+            streetLabel="Street"
+            cityLabel="City"
+            countryLabel="Country"
+            provinceLabel="State"
+            postalCodeLabel="PostalCode"
+            street="{!v.orderbeerFields.Shipping_Street__c}"
+            city="{!v.orderbeerFields.Shipping_City__c}"
+            country="{!v.orderbeerFields.Shipping_Country__c}"
+            province="{!v.orderbeerFields.Shipping_State__c}"
+            postalCode="{!v.orderbeerFields.Shipping_Postal_Code__c}"
+            required="true"
+            fieldLevelHelp="Provide shipping address"
+        />  
+      </div>
+        <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+       <lightning:inputAddress
+            aura:id="testvalid"
+            addressLabel="Billing Address"
+            streetLabel="Street"
+            cityLabel="City"
+            countryLabel="Country"
+            provinceLabel="State"
+            postalCodeLabel="PostalCode"
+            street="{!if(v.orderbeerFields.Billing_Same_as_Shipping__c,v.orderbeerFields.Shipping_Street__c,v.orderbeerFields.Billing_Street__c)}"
+            city="{!if(v.orderbeerFields.Billing_Same_as_Shipping__c,v.orderbeerFields.Shipping_City__c,v.orderbeerFields.Billing_City__c)}"
+            country="{!if(v.orderbeerFields.Billing_Same_as_Shipping__c,v.orderbeerFields.Shipping_Country__c,v.orderbeerFields.Billing_Country__c)}"
+            province="{!if(v.orderbeerFields.Billing_Same_as_Shipping__c,v.orderbeerFields.Shipping_State__c,v.orderbeerFields.Billing_State__c)}"
+            postalCode="{!if(v.orderbeerFields.Billing_Same_as_Shipping__c,v.orderbeerFields.Shipping_Postal_Code__c,v.orderbeerFields.Billing_Postal_Code__c)}"
+            required="{!!v.orderbeerFields.Billing_Same_as_Shipping__c}"
+            readonly="{!v.orderbeerFields.Billing_Same_as_Shipping__c}"                 
+            fieldLevelHelp="Provide billing address"
+        />  
+      </div>
+    </div>
+    
+    <div class="slds-grid slds-wrap slds-p-around_xx-small ">
+        <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+            <lightning:input type="checkbox" label="Billing address is same as shipping address" name="sameAddress" 
+                             value="{!v.orderbeerFields.Billing_Same_as_Shipping__c}" checked="{!v.orderbeerFields.Billing_Same_as_Shipping__c}"/>
+            {!v.orderbeerFields.Billing_Same_as_Shipping__c}
+        </div>
+    </div>
+    
+    <div class="slds-grid slds-wrap slds-p-around_xx-small ">
+        <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+    <lightning:button variant="brand" label="Place Order" onclick="{! c.handlePlaceOrder}" />
+        </div>
+    </div>
+    
+</aura:component>

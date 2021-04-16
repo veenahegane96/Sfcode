@@ -1,0 +1,15 @@
+<aura:component >
+       <!-- Used to check bound and unbound variables with child.cmp
+	    <aura:attribute name="parentfield" type="String" default="this is parent values"/>
+       <lightning:button variant="Neutral" label="Parent Button" name="ParentButton" onclick="{!c.parentclick}"/><br/>
+        {!v.parentfield}<br/> <c:Child childfield="{#v.parentfield}"/>-->
+    
+    
+    
+     <!-- Test the use of aura method
+       <c:Child aura:id="childId"/>
+      <lightning:button label="click to call child method" onclick="{!c.parentMethod}"/>-->
+    
+    
+      <c:Child testActioncallParent="{!c.parentAction}"/>
+</aura:component>

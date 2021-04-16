@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:attribute name="searchkeys" type="string"/>
+    <aura:registerEvent name="searchBeer" type="c:SearchEvent"/>
+    <div class="slds-p-around_x-small">
+        <lightning:input
+                         aura:id="beerSearch"
+                         name="beerSearch"
+                         label="Enter beer name to search"
+                         type="search"
+                         value="{!v.searchkeys}"
+                         onchange="{!c.onchange}"
+                         />
+    </div>
+</aura:component>

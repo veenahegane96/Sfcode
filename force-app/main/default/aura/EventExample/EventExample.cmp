@@ -1,0 +1,9 @@
+<!-- calling and handling application in same component-->
+<aura:component >
+    <aura:attribute name="checkChange" type="String" />
+    {!v.checkChange}<br/>
+    <aura:handler name="change" value="{!v.checkChange}" action="{!c.changeValue}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:appEvent" action="{!c.handleApplicationEvent}"/>
+    <lightning:button label="Value Change" title="Value Change" value="{!v.checkChange}" onclick="{!c.handleClick}"/>
+</aura:component>

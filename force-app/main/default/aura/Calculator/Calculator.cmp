@@ -1,0 +1,17 @@
+<aura:component >
+    <aura:attribute name="firstNo" type="Integer" default="0" access="public"/>
+    <aura:attribute name="secondNo" type="Integer" default="0" access="public"/>
+    <aura:attribute name="answer" type="Integer" default="0" access="public"/>
+
+    <div class="slds-p-around_x-small">
+        <lightning:input name="inputfirst" value="{!v.firstNo}" label="Enter a first number" />
+        <lightning:input name="inputfirst" value="{!v.secondNo}" label="Enter a second number" /><br/>
+        <lightning:button label="Addition" onclick="{! c.add }"/> 
+        <lightning:button label="Substraction" onclick="{! c.sub }"/> 
+        <lightning:button label="Multiplication" onclick="{! c.mul }"/> 
+        <lightning:button label="Division" onclick="{! c.div }"/> 
+        <lightning:input aura:id="ans" name="answer" value="{!v.answer}" label="Answer" />
+        
+    </div>
+          
+</aura:component>

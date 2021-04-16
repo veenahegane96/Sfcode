@@ -1,0 +1,18 @@
+<aura:component >
+    <!--Used to check bound and unbound variables with parent.cmp
+    <aura:attribute name="childfield" type="String" default="this is child values"/>
+    <lightning:button variant="Neutral" label="Child Button" name="ParentButton" onclick="{!c.childclick}"/><br/>
+    {!v.childfield}-->
+    
+    
+    <!--Test the use of aura method which is called in parent.cmp controller
+    <aura:method name="callchildmethod_fromparent" action="{!c.methodcall}">
+        <aura:attribute name="parameter1" type="String"/>
+         <aura:attribute name="parameter2" type="Integer"/>
+    </aura:method>-->
+
+    
+    <aura:attribute name="testActioncallParent" type="Aura.Action"/>
+    <lightning:button variant="Neutral" label="Child Button" name="childButton" onclick="{!v.testActioncallParent}"/>
+
+</aura:component>

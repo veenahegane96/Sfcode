@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="recordFields" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <lightning:navigation aura:id="navigateBeerList"/>
+    <force:recordData aura:id="deleteRecord" recordId="{!v.recordId}"
+                      fields="Id"
+                      targetError="{!v.recordError}"/>
+     <lightning:button name="delete" label="Delete" onclick="{!c.deleteRecord}"/>
+    
+</aura:component>

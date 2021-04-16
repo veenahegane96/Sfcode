@@ -1,0 +1,5 @@
+<aura:component >
+	<aura:handler event="c:applicationEvent" action="{!c.handleEvent}" includeFacets="true"/>
+    Inside the root component<br/>
+    {!v.body}
+</aura:component>

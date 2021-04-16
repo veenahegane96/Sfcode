@@ -1,0 +1,17 @@
+<aura:component controller="BeerSearch" implements="force:appHostable,lightning:isUrlAddressable" >
+    <aura:attribute name="arraybeerlist" type="sObject[]"/>
+    <aura:handler name="searchBeer" event="c:SearchEvent" action="{!c.findBeer}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.findBeer}"/>
+    <div>
+      <c:HeaderComponent headertitle="Beer Explorer" tagline="Explore and buy your favorite beer"/>
+    </div>
+    <div>
+          <c:BeerSearch/>
+    </div>
+    <!--<aura:iteration items="{!v.listofbeers}" var="item">
+        {!item.Name}<br/>
+    </aura:iteration>-->
+    <div>
+      <c:BeerListComponent beerlist="{!v.arraybeerlist}"/>
+    </div>
+</aura:component>

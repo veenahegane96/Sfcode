@@ -1,0 +1,17 @@
+<aura:component >
+    <aura:attribute name="numberdata" type="Integer" default="12" description="Integer number value" access="public"/>
+    <aura:attribute name="stringdata" type="String" default="Veena" description="String value" access="public"/>
+    <aura:attribute name="object" type="Account" default="{'sobject':'Account','Name':'VeenaTestAccount'}" description="Object account" access="private"/>
+    <aura:attribute name="arraydata" type="Integer[]" default="[11,12,13,14,15]" description="array values" access="public"/>
+    <aura:attribute name="setdata" type="set" default="['veena','juilee','sharadha','nikita']" description="set type values" access="public"/>
+    <aura:attribute name="listdata" type="list" default="['james','joho']" description="list type values" access="public"/>
+    <div>
+        Number value=>{!v.numberdata} <br/>
+        String value=>{!v.stringdata}<br/>
+        object value=>{!v.object.Name}<br/>
+        array value=>{!v.arraydata[3]}<br/>
+        set value=>{!v.setdata[2]}<br/>
+        list value=>{!v.listdata[1]}
+    </div>
+    
+</aura:component>

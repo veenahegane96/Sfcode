@@ -1,0 +1,18 @@
+<aura:component controller="contactListController" >
+    <aura:attribute name="contactinfo" type="contact" default="{
+                                                               'LastName':'Component_lastname',
+                                                               'FirstName':'',
+                                                               'Email':'',
+                                                               'Phone':''
+                                                               }"/>
+    <aura:attribute name="accountId" type="string"/>
+    <aura:attribute name="lastnameError" type="string" default="please provide a lastname"/>
+    <aura:registerEvent name="contactEvent" type="c:ContactEvent"/>
+    <div class="slds-p-top_xx-small">
+        <lightning:input name="firstname" aura:id='validate' type="text" value="{!v.contactinfo.FirstName}" label="Enter contact firstname" required="true" messageWhenValueMissing="please provide a firstname"/>
+        <lightning:input name="lastname" aura:id='validate' type="text" value="{!v.contactinfo.LastName}" label="Enter contact lastname" required="true" messageWhenValueMissing="{!v.lastnameError}"/>
+        <lightning:input name="email" aura:id='validate' type="email" value="{!v.contactinfo.Email}" label="Enter contact email" required="true" messageWhenValueMissing="please provide a valid email"/>
+        <lightning:input name="phone" aura:id='validate' type="phone" value="{!v.contactinfo.Phone}" label="Enter contact phono no" required="true" messageWhenValueMissing="please provide a phone no"/><br/>
+        <lightning:button variant="brand" aura:id='validatebutton' label="Submit Contact" title="Begins the task" onclick="{!c.saveContact}"/>
+    </div>
+</aura:component>

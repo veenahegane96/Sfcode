@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:registerEvent name="sourceEvent" type="c:applicationEvent"/>
+    Source component<br/>
+    <lightning:button name="fire event" label="Fire Event From Source" onclick="{!c.fireEvent}" variant="Brand"/>
+</aura:component>

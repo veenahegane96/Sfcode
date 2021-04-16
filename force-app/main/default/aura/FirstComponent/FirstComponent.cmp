@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="listdata" type="list" default="['red','blue','green']"/>
+    <aura:attribute name="booleandata" type="boolean" default="false"/>
+    <div class="slds-var-p-around_small	">
+    <h1 class="blue">Hi This is my first lightning component</h1>
+    <p class="green">This is paragraph</p>
+    <div class="yellow">This is html div</div> 
+    <div style="background-color:pink;font-family: cursive;">This is another line</div>
+    </div> 
+    If example<br/>
+    <aura:if isTrue="{!v.booleandata}">
+    True data it is
+    <aura:set attribute="else">
+      False data it is
+    </aura:set>
+    </aura:if><br/>
+    Iteration Example<br/>
+    <aura:iteration items="{!v.listdata}" var="item">
+        {!item}<br/>
+    </aura:iteration>
+</aura:component>

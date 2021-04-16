@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="recordFields" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:navigation aura:id="navigateBeerList"/>
+    <force:recordData aura:id="createRecord"
+                      layoutType="FULL"
+                      mode="VIEW"
+                      fields="Name, Alco__c, Image__c, Price__c"
+                      targetFields="{!v.recordFields}"
+                      targetRecord="{!v.record}"
+                      targetError="{!v.recordError}"/>
+    
+    <lightning:input name="beerName" label="Beer Name" value="{!v.recordFields.Name}" required="true"/><br/>
+    <lightning:button name="save" label="Save" onclick="{!c.saveRecord}"/>
+    
+</aura:component>
