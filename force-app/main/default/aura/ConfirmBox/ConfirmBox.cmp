@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    <aura:attribute name="HeaderName" type="String" default="Confirmation"/>
+    <aura:attribute name="Message" type="String" default="Are you sure"/>
+    <aura:attribute name="Button1Name" type="String" default="Cancel"/>
+    <aura:attribute name="Button2Name" type="String" default="Okay"/>
+    <lightning:overlayLibrary aura:id="closeModal"/>
+    <div>
+        <header class="slds-modal__header">
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.HeaderName}</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium slds-text-align_center" id="modal-content-id-1">
+                <p>{!v.Message}</p>
+            </div>
+            <footer class="slds-modal__footer slds-p-around_small">
+                <lightning:button label="{!v.Button1Name}" variant="neutral" onclick="{!c.handleButton1}"/>
+                <lightning:button label="{!v.Button2Name}" variant="brand" onclick="{!c.handleButton2}"/>
+            </footer>
+    </div>        
+</aura:component>

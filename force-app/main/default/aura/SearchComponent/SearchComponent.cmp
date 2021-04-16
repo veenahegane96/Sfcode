@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:attribute name="searchText" type="String"/>
+    <aura:registerEvent name="searchAccount" type="c:SearchEvent"/>
+    <div class="slds-p-around_small slds-grid slds-wrap">
+     <div class="slds-col slds-size_1-of-4 slds-p-right_x-small ">
+        <lightning:input
+            aura:id="searchcmp"
+            name="searchrecord"
+            label="Search Account"
+            type="search"
+            value="{!v.searchText}"
+         />
+        </div>
+        <div class="slds-col slds-size_1-of-4 slds-p-top_large">
+    <lightning:button name="search button" variant="brand" label="Search" onclick="{!c.handleSearch}"/>
+    </div>
+    </div>
+</aura:component>

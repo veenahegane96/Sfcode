@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="industry" type="String"/>
+    <aura:attribute name="phone" type="String"/>
+    <aura:attribute name="active" type="boolean"/>
+    <lightning:overlayLibrary aura:id="closeModal"/>
+  
+    <lightning:recordEditForm aura:id="editformRecord" recordId="{!v.recordId}" objectApiName="{!v.objectName}" 
+                              onsubmit="{!c.handleUpdate}" onsuccess="{!c.handleSuccess}" onerror="{!c.handleError}">
+        <lightning:messages />
+        <lightning:outputField fieldName="Name" />
+        <lightning:inputField fieldName="Industry" value="{!v.industry}"/>
+        <lightning:inputField fieldName="Phone" value="{!v.phone}"/>
+        <lightning:inputField fieldName="Active__c" value="{!v.active}"/>
+        <lightning:button class="slds-m-top_small" variant="brand" type="submit" label="Update"/>
+    </lightning:recordEditForm>    
+</aura:component>
